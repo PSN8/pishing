@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Dados Futurístico</title>
+    <style>
+        /* Adicione novos estilos conforme necessário */
+        @keyframes blinking {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .shining-blue {
+            color: #00f;
+            animation: blinking 1s infinite;
+        }
+
+        .glowing-red {
+            color: #f00;
+            animation: blinking 1s infinite;
+        }
+
+        body {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1 {
+            color: #00ffcc;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #444;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.8);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #00ffcc;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #00ffcc;
+            color: #222;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #00997a;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Preencha e concorra!</h1>
+<h2>Iphone Pro Max 15</h2>
+
+<form action="#" method="post" onsubmit="salvarDados(event)">
+    <img src="k.jpg" alt="Imagem de Celular" style="border-radius: 8px;">
+
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
+
+    <label for="idade">Idade:</label>
+    <input type="number" id="idade" name="idade" required>
+
+    <label for="profissao">Profissão:</label>
+    <input type="text" id="profissao" name="profissao" required>
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" required>
+
+    <button type="submit">Enviar dados</button>
+</form>
+
+<script>
+    function salvarDados(event) {
+        event.preventDefault();
+
+        // Obter valores dos campos
+        var nome = document.getElementById('nome').value;
+        var idade = document.getElementById('idade').value;
+        var profissao = document.getElementById('profissao').value;
+        var email = document.getElementById('email').value;
+
+        // Aqui você pode adicionar código para salvar os dados, seja em um banco de dados, arquivo, etc.
+        // Exemplo de exibição dos dados no console:
+        console.log("Nome:", nome);
+        console.log("Idade:", idade);
+        console.log("Profissão:", profissao);
+        console.log("E-mail:", email);
+
+        // Limpar os campos após salvar os dados (opcional)
+        document.getElementById('nome').value = '';
+        document.getElementById('idade').value = '';
+        document.getElementById('profissao').value = '';
+        document.getElementById('email').value = '';
+
+        // Exibir mensagens na página
+        exibirMensagem();
+    }
+
+    function exibirMensagem() {
+        // Limpar conteúdo da página
+        document.body.innerHTML = '';
+
+        // Adicionar mensagem azul centilante
+        var blueMessage = document.createElement('h1');
+        blueMessage.className = 'shining-blue';
+        blueMessage.textContent = 'Você acaba de cair em um teste de engenharia social';
+        document.body.appendChild(blueMessage);
+
+        // Adicionar imagem ao estilo anterior
+        var image = document.createElement('img');
+        image.src = "k.jpg";
+        image.alt = "Imagem de Celular";
+        image.style.borderRadius = "8px";
+        document.body.appendChild(image);
+
+        // Adicionar mensagem vermelho florescente
+        var redMessage = document.createElement('h1');
+        redMessage.className = 'glowing-red';
+        redMessage.textContent = 'Seus dados foram vazados';
+        document.body.appendChild(redMessage);
+    }
+</script>
+
+</body>
+</html>
+
